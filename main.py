@@ -7,4 +7,7 @@ def cook(name='bludo', t=5):
     sleep(t)
     print(f'{name} ready')
 
+
+t1 = threading.Thread(target=cook, args=('borsch'))
+
 cook('borsch')
