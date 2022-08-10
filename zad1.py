@@ -1,16 +1,16 @@
 import threading
+import time
 from time import sleep
 
-x = []
+"""x = []
 
 
 def cook(name='bludo', t=3):
     print(f"You started cooking {name}")
     sleep(t)
-    print(f'{name} ready')
+    print(f'{name} ready')"""
 
-
-t1 = threading.Thread(target=cook, args=('borsch',))
+"""t1 = threading.Thread(target=cook, args=('borsch',))
 t2 = threading.Thread(target=cook, args=('rise',))
 t3 = threading.Thread(target=cook, args=('plov',))
 
@@ -22,9 +22,38 @@ print('U can use for plov')
 t3.start()
 
 t1.join()
-t3.join()
+t3.join()"""
+
+"""def func():
+    for i in range(1000000):
+        pass
 
 
+def func2():
+    time1 = time.time()
+    t1 = threading.Thread(target=func)
+    t2 = threading.Thread(target=func)
+    t3 = threading.Thread(target=func)
+    t1.start()
+    t2.start()
+    t3.start()
+    t1.join()
+    t2.join()
+    t3.join()
+    print(time.time() - time1)
 
 
-print(x)
+func2()"""
+import asyncio
+
+
+async def cook(name='bludo', t=3):
+    print(f"You started cooking {name}")
+    await asyncio.sleep(t)
+    print(f'{name} ready')
+
+loop = asyncio.get_event_loop()
+
+tasks = asyncio.gather(cook('cock'), cook('balls'))
+
+loop.run_until_complete(tasks)
