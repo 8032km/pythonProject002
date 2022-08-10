@@ -46,6 +46,7 @@ def func2():
 func2()"""
 import asyncio
 
+#baza
 
 async def cook(name='bludo', t=3):
     print(f"You started cooking {name}")
