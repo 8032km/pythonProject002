@@ -46,15 +46,45 @@ def func2():
 func2()"""
 import asyncio
 
-#baza
+"""
+# baza
 
 async def cook(name='bludo', t=3):
     print(f"You started cooking {name}")
     await asyncio.sleep(t)
     print(f'{name} ready')
 
+
+async def main():
+    x = await cook('cock')
+    await cook('balls')
+
+
+loop = asyncio.get_event_loop()"""
+
+"""tasks = asyncio.gather(cook('cock'), cook('balls'))"""
+
+"""loop.run_until_complete(main())"""
+
+import time
+
+
+async def main():
+    for i in range(10):
+        print(i)
+        await asyncio.sleep(1)
+
+
+print(main)
+
+
+async def func():
+    task1 = asyncio.create_task(main())
+    task2 = asyncio.create_task(main())
+    task3 = asyncio.create_task(main())
+    await task1
+    await task2
+    await task3
+
 loop = asyncio.get_event_loop()
-
-tasks = asyncio.gather(cook('cock'), cook('balls'))
-
-loop.run_until_complete(tasks)
+loop.run_until_complete(func())
